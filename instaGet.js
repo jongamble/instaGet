@@ -1,7 +1,7 @@
 /*
  * instaGet
  * Created by: Jon Gamble - http://www.trimarkdigital.com
- * Version: 1.0
+ * Version: 1.1
  * Copyright: Trimark Digital
  * License: MIT license
  * Updated: November 13 2013
@@ -16,7 +16,8 @@
 			"key": null,
 			"access_token": null,
 			"count": 4,
-			"links": true
+			"links": true,
+			"liClass": ''
 		};
 		var user = $.extend(true, defaults, options);
 		var url = "https://api.instagram.com/v1/users/" + user.key + "/media/recent?access_token=" + user.access_token + "&count=" + user.count + "&callback=?";
@@ -38,7 +39,7 @@
 					targets.each(function(){
 						var list = $(this);
 						$.each(data.data, function (i, val) {
-							var li = $("<li/>").appendTo(list);
+							var li = $("<li/>").addClass(user.liClass).appendTo(list);
 							if(user.links === true){
 								var a = $("<a/>", {"href": val.link, "target": "_blank"}).appendTo(li);
 								var img = $("<img/>", {"src": val.images.thumbnail.url}).appendTo(a);
@@ -59,4 +60,8 @@
 	};
 		
 	
+<<<<<<< HEAD
 })(jQuery);
+=======
+})(jQuery);
+>>>>>>> d01f88a50d68b837db5803c266fbcd069bd07dce
